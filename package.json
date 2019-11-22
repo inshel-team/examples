@@ -1,0 +1,69 @@
+{
+  "name": "@inshel/react-examples",
+  "version": "0.1.0",
+  "description": "InShel examples",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "develop": "webpack-dev-server --hot",
+    "develop:server": "babel-node ./src/server.js",
+    "compile:client": "webpack --config webpack.config.js",
+    "compile:server": "webpack --config webpack.server.config.js",
+    "compile": "rm -rf ./target && npm run compile:client && npm run compile:server",
+    "docker:image:node": "docker build -f docker.node -t inshel-examples-node:$npm_package_version .",
+    "docker:image:static": "docker build -f docker.static -t inshel-examples-static:$npm_package_version .",
+    "docker:images": "npm run compile && npm run docker:image:node && npm run docker:image:static",
+    "docker:publish:node": "",
+    "docker:publish:static": "",
+    "docker:publish": "npm run docker:images && npm run docker:publish:node && npm run docker:publish:static"
+  },
+  "keywords": [
+    "InShel",
+    "examples"
+  ],
+  "author": "Dmitry <db@inshel.com> Balakov",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/plugin-proposal-class-properties": "^7.7.0",
+    "@babel/plugin-proposal-export-default-from": "^7.5.2",
+    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-react": "^7.7.0",
+    "@material-ui/core": "^4.6.1",
+    "@material-ui/icons": "^4.5.1",
+    "babel-loader": "^8.0.6",
+    "babel-polyfill": "^6.26.0",
+    "html-webpack-plugin": "^3.2.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-hot-loader": "^4.12.18",
+    "url-loader": "^2.3.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "peerDependencies": {
+    "@material-ui/core": "^4.5.1",
+    "@material-ui/icons": "^4.5.1",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
+  },
+  "dependencies": {
+    "@babel/node": "^7.7.0",
+    "@inshel/documents": "^0.2.0",
+    "@inshel/node": "^0.1.0",
+    "bufferutil": "^4.0.1",
+    "classnames": "^2.2.6",
+    "css-loader": "^3.2.0",
+    "fallback-local-storage": "0.0.20",
+    "jsencrypt": "^3.0.0-rc.1",
+    "node-jsencrypt": "^1.0.0",
+    "prop-types": "^15.7.2",
+    "react-chat-elements": "^10.8.0",
+    "style-loader": "^1.0.0",
+    "utf-8-validate": "^5.0.2",
+    "uuid": "^3.3.3"
+  }
+}
