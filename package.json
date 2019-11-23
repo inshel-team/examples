@@ -3,10 +3,15 @@
   "version": "0.1.0",
   "description": "InShel examples",
   "main": "index.js",
+  "keywords": [
+    "InShel",
+    "examples"
+  ],
+  "author": "Dmitry <db@inshel.com> Balakov",
+  "license": "ISC",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel ./src/examples/chat/component --out-dir ./chat --copy-files && babel ./src/examples/to-do/component --out-dir ./to-do --copy-files",
-    "postinstall": "npm run build",
+    "postinstall": "babel ./src/examples/chat/component --out-dir ./chat --copy-files && babel ./src/examples/to-do/component --out-dir ./to-do --copy-files",
     "develop:node": "babel-node ./src/server.js",
     "develop:static": "webpack-dev-server --hot",
     "compile:node": "webpack --config webpack.server.config.js",
@@ -24,12 +29,6 @@
     "docker:services:start": "npm run docker:services:stop || true && npm run docker:service:node && npm run docker:service:static",
     "docker:services:stop": "docker service rm inshel-examples-node inshel-examples-static"
   },
-  "keywords": [
-    "InShel",
-    "examples"
-  ],
-  "author": "Dmitry <db@inshel.com> Balakov",
-  "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.7.2",
     "@babel/plugin-proposal-class-properties": "^7.7.0",
