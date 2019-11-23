@@ -1,6 +1,7 @@
 FROM node:12.13.0-alpine3.10
 
 COPY ./package.json /node/
+COPY ./package-lock.json /node/
 COPY ./target/server /node/
 RUN cd /node/ && npm install
 
