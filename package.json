@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel ./src/examples/chat/component --out-dir ./chat --copy-files && babel ./src/examples/to-do/component --out-dir ./to-do --copy-files",
+    "postinstall": "npm run build",
     "develop:node": "babel-node ./src/server.js",
     "develop:static": "webpack-dev-server --hot",
     "compile:node": "webpack --config webpack.server.config.js",
